@@ -1,2 +1,2 @@
-# AmigoScreto-ONE
+# AmigoSecreto-ONE
  Challenge amigo secreto ONE
