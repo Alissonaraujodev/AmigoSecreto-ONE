@@ -1,21 +1,37 @@
 let listaDeNomes = [];
-let quantidadeDeAmigos = listaDeNomes.length-1;
-
+let listaDeAmigos = document.getElementById('listaAmigos');
+let resultado = document.getElementById('resultado')
 
 function adicionarAmigo(){
-    listaDeNomes = document.getElementById('amigo').value;
-    console.log(listaDeNomes);
+    let nome = document.getElementById('amigo').value;
+    if (nome && !listaDeNomes.includes(nome)) {
+        listaDeNomes.push(nome);
+    } else {
+        alert('Nome inválido ou já adicionado!');
+    }
     limparCampo();
+    listaDeAmigos.innerHTML += nome + '<br>';
 }
 
 function limparCampo(){
-    nomeAdicionado = document.getElementById('amigo');
+    let nomeAdicionado = document.getElementById('amigo');
     nomeAdicionado.value = '';
 }
 
 function sortearAmigo(){
- 
+    if (listaDeNomes.length < 2) {
+        console.log('Adicione pelo menos 2 amigos para o sorteio!');
+        return null;
+    }
+
+    const indiceSorteado = Math.floor(Math.random() * listaDeNomes.length);
+    let amigoSorteado = listaDeNomes[indiceSorteado];
+    resultado.innerHTML = `O amigo sorteado é: ${amigoSorteado} `
+    listaDeAmigos.innerHTML = ''
 }
+
+
+
 
 /*
 let listaDeNumerosSorteados = [];
